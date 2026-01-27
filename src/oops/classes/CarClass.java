@@ -1,3 +1,5 @@
+package oops.classes;
+
 public class CarClass {
 
     /*
@@ -30,7 +32,7 @@ public class CarClass {
     }
 
     /*
-    *  void -> return datatype (int, float, String, CarClass)
+    *  void -> return datatype (int, float, String, oops.classes.CarClass)
     *  carDetails -> method name
     *  () -> parameters specification for inputs
     *  {} -> method body
