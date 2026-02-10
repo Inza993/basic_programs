@@ -10,7 +10,7 @@ public class Laptop extends Computer {
     boolean isFingerUnlockAvailable;
 
     public Laptop(int ram, String process, boolean isFingerUnlockAvailable) {
-        super(ram, process);
+        super(ram, process, 2);
         this.isFingerUnlockAvailable = isFingerUnlockAvailable;
     }
 
