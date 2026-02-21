@@ -10,6 +10,8 @@ public class Member extends User {
     public Member(int userId, String name, ArrayList borrowedBooks) {
         super(userId, name);
         this.borrowedBooks = new ArrayList<>();
+
+        System.out.println("this.borrowedBooks: "+this.borrowedBooks);
         for (int i = 0; i < borrowedBooks.size(); i++) {
             if (borrowedBooks.get(i) instanceof Book)
                 borrowBook((Book) borrowedBooks.get(i));
@@ -24,13 +26,21 @@ public class Member extends User {
     }
 
     void borrowBook(Book book) {
-        book.isAvailable = false;
-        borrowedBooks.add(book);
+        if (book.isAvailable) {
+            book.isAvailable = false;
+            borrowedBooks.add(book);
+        } else {
+            System.out.println(book.title+": "+"is not available");
+        }
     }
 
     void returnBook(Book book) {
-        book.isAvailable = true;
-        borrowedBooks.remove(book);
+        if (borrowedBooks.contains(book)) {
+            book.isAvailable = true;
+            borrowedBooks.remove(book);
+        } else {
+            System.out.println("Book is not available...");
+        }
     }
 
 }

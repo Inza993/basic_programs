@@ -13,10 +13,10 @@ public class Admin extends User {
     }
 
     void addBook(Library library, Book book) {
-        library.addBook(book);
+        library.books.add(book);
     }
 
     void removeBook(Library library, Book book) {
-        library.removeBook(book);
+        library.books.remove(book);
     }
 }
