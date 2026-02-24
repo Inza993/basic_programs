@@ -9,26 +9,36 @@ public class Library {
 
     public Library(ArrayList books, ArrayList members) {
         this.books = books;
-        this.members = members;
+        this.members = new ArrayList();
+        for (int i = 0; i < members.size(); i++) {
+            if (members.get(i) instanceof Member)
+                registerMember((Member) members.get(i));
+        }
     }
 
-    void addBook(Book book) {
-        books.add(book);
-    }
-
-    void removeBook(Book book) {
-        books.remove(book);
-    }
+//    void addBook(Book book) {
+//        books.add(book);
+//    }
+//
+//    void removeBook(Book book) {
+//        books.remove(book);
+//    }
 
     void registerMember(Member member) {
+        // todo add validation for members age
         members.add(member);
     }
 
     void listBooks(boolean availableOnly) {
+        System.out.println("Availability: "+availableOnly);
+
         for (int i = 0; i < books.size(); i++) {
             if (books.get(i) instanceof Book) {
                 if (availableOnly) {
-                    System.out.println(((Book) books.get(i)).title);
+                    Book book = (Book) books.get(i);
+                    if (book.isAvailable) {
+                        System.out.println(book.title);
+                    } // else do nothing
                 } else {
                     System.out.println(((Book) books.get(i)).title);
                 }
