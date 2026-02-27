@@ -18,6 +18,10 @@ public class Member extends User {
         }
     }
 
+    public Member(String name, ArrayList borrowedBooks) {
+        this(name.length(), name, borrowedBooks);
+    }
+
     @Override
     void displayDetails() {
         System.out.println("userId: "+userId);
@@ -43,4 +47,12 @@ public class Member extends User {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Member{" +
+                "borrowedBooks=" + borrowedBooks +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
