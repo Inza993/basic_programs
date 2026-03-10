@@ -9,7 +9,10 @@ public class CreditCardPayment extends Payment{
     }
 
     @Override
-    boolean pay(float amount) {
-       return true;
+    boolean pay(float amount, float estAmount) {
+        if(amount == estAmount)
+            return true;
+        else
+            return false;
     }
 }
