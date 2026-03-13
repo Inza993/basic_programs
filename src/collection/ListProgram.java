@@ -9,6 +9,8 @@ import java.util.List;
 public class ListProgram {
 
     public static void main(String[] args) {
+
+        // uses insertion order
         List<User> users = new ArrayList<>();
         users.add(new User("raja", 1, 15));
         users.add(new User("raju", 2, 25));
