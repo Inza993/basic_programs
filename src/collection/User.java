@@ -2,7 +2,7 @@ package collection;
 
 import java.util.Objects;
 
-public class User {
+public class User implements Comparable<User> {
 
     String name;
     int id;
@@ -53,5 +53,17 @@ public class User {
                 ", id=" + id +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public int compareTo(User o) {
+        System.out.println("compareTo");
+        if (this.age == o.age) {
+            return 0;
+        } else if (this.age > o.age) {
+            return 1;
+        }
+
+        return -1;
     }
 }
