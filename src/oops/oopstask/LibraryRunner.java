@@ -93,11 +93,12 @@ public class LibraryRunner {
                 System.out.println("Enter book id to borrow:");
                 int borrowBookId = Integer.parseInt(sc.nextLine());
                 for (int i = 0; i < annaLibrary.books.size(); i++) {
-                    if (annaLibrary.books.get(i) instanceof Book book) {
+                  //  if (annaLibrary.books.get(i) instanceof Book book) {
+                        Book book = annaLibrary.books.get(i);
                         if (book.bookId == borrowBookId) {
                             nazrin.borrowBook(book);
                         }
-                    }
+                    //}
                 }
                 break;
             }
