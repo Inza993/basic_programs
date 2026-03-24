@@ -6,21 +6,13 @@ import java.util.Scanner;
 public class ShopRunner {
 
     public static void main(String[] args) {
-
-        int userId = 0;
-        String name = null;
-        String address = null;
-
         Scanner sc = new Scanner(System.in);
-        ArrayList<Product> products = new ArrayList<Product>();
-        Admin admin = new Admin(userId,name);
-        Customer customer = new Customer(userId,name,address);
 
-        getProductsFromUser(sc,products);
-        getAdminFromUser(sc, admin);
-        getCustomerFromUser(sc, customer);
+        Admin admin = getAdminFromUser();
+        ArrayList<Product> products = getProductsFromUser();
+        Customer customer = getCustomerFromUser();
 
-        ArrayList<Product> cusProduct = new ArrayList<Product>();
+        ArrayList<Product> cusProduct = new ArrayList<>();
         System.out.println("Proceed to buy.... ");
         while(true)
         {
@@ -50,7 +42,10 @@ public class ShopRunner {
         int option = Integer.parseInt(sc.nextLine());
         int amount;
         switch (option) {
-            case 1: UPIPayment upi = new UPIPayment("1245");
+            case 1:
+                System.out.println("Enter UPI Id");
+                String upiId = sc.nextLine();
+                UPIPayment upi = new UPIPayment(upiId);
                 System.out.println("Enter amount");
                 amount = Integer.parseInt(sc.nextLine());
                 if(upi.pay(amount, estAmount))
@@ -60,7 +55,9 @@ public class ShopRunner {
                 break;
 
             case 2:
-                CreditCardPayment card = new CreditCardPayment("abc123");
+                System.out.println("Enter credit card number");
+                String creditCardNo = sc.nextLine();
+                CreditCardPayment card = new CreditCardPayment(creditCardNo);
                 System.out.println("Enter amount");
                 amount = Integer.parseInt(sc.nextLine());
                 if(card.pay(amount,estAmount))
@@ -73,10 +70,11 @@ public class ShopRunner {
         }
         sc.close();
     }
-    public static void getProductsFromUser(Scanner sc, ArrayList<Product> products)
+    public static ArrayList<Product> getProductsFromUser()
     {
         String name;
-
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Product> products = new ArrayList<>();
         while(true) {
             System.out.println("Enter product details");
             System.out.println("Enter productId");
@@ -95,18 +93,22 @@ public class ShopRunner {
                 break;
             }
         }
+        return products;
     }
-    public static void getAdminFromUser(Scanner sc, Admin admin)
+    public static Admin getAdminFromUser()
     {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter admin details");
         System.out.println("Enter admin userId");
         int userId = Integer.parseInt(sc.nextLine());
         System.out.println("Enter admin name");
         String name = sc.nextLine();
-        admin = new Admin(userId, name);
+        Admin admin = new Admin(userId, name);
+        return admin;
     }
-    public static void getCustomerFromUser(Scanner sc, Customer customer)
+    public static Customer getCustomerFromUser()
     {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter Customer details");
         System.out.println("Enter customer userId");
         int userId = Integer.parseInt(sc.nextLine());
@@ -114,7 +116,8 @@ public class ShopRunner {
         String name = sc.nextLine();
         System.out.println("Enter customer address");
         String address = sc.nextLine();
-        customer = new Customer(userId,name,address);
+        Customer customer = new Customer(userId,name,address);
+        return customer;
     }
 }
 
