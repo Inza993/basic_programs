@@ -2,7 +2,7 @@ package collection;
 
 import java.util.*;
 
-public class DemoSet {
+public class DemoSetComparable {
 
     public static void main(String[] args) {
 
@@ -135,7 +135,6 @@ public class DemoSet {
         Collections.sort(usersArrList2);
         System.out.println("usersArrList2: "+usersArrList2);
 
-        // comparator
     }
 
     static void bubbleSortUserName(List<User> arr) {
