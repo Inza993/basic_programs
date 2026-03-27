@@ -14,6 +14,7 @@ public class DemoLinkedList {
         list.addLast("Cherry");
         list.addFirst("Apricot");
         list.add(null);
+        System.out.println(list.get(4));
 
         System.out.println("Original list: " + list);
 
