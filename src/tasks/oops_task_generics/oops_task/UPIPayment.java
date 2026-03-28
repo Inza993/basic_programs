@@ -11,7 +11,7 @@ public class UPIPayment extends Payment {
 
     @Override
     boolean pay(float amount, float estAmount) {
-        return (amount == estAmount);
+        return amount == estAmount;
     }
 
 

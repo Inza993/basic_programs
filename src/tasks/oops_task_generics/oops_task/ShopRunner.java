@@ -72,7 +72,6 @@ public class ShopRunner {
     }
     public static ArrayList<Product> getProductsFromUser()
     {
-        String name;
         Scanner sc = new Scanner(System.in);
         ArrayList<Product> products = new ArrayList<>();
         while(true) {
@@ -80,7 +79,7 @@ public class ShopRunner {
             System.out.println("Enter productId");
             int productId = Integer.parseInt(sc.nextLine());
             System.out.println("Enter product name");
-            name = sc.nextLine();
+            String name = sc.nextLine();
             System.out.println("Enter product price");
             float price = Float.parseFloat(sc.nextLine());
 
@@ -103,8 +102,7 @@ public class ShopRunner {
         int userId = Integer.parseInt(sc.nextLine());
         System.out.println("Enter admin name");
         String name = sc.nextLine();
-        Admin admin = new Admin(userId, name);
-        return admin;
+        return new Admin(userId, name);
     }
     public static Customer getCustomerFromUser()
     {
@@ -116,8 +114,7 @@ public class ShopRunner {
         String name = sc.nextLine();
         System.out.println("Enter customer address");
         String address = sc.nextLine();
-        Customer customer = new Customer(userId,name,address);
-        return customer;
+        return new Customer(userId,name,address);
     }
 }
 
