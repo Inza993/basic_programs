@@ -2,7 +2,7 @@ package oops.objectclass;
 
 public class Computer {
 
-    int ram;
+    public int ram;
     String process;
     final int monitorCount;
     static final String COMPUTER_NAME = "Computer";

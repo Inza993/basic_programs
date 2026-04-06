@@ -7,7 +7,7 @@ package oops.objectclass;
 // Laptop -> super.displayDetails()
 public class Laptop extends Computer {
 
-    boolean isFingerUnlockAvailable;
+    public boolean isFingerUnlockAvailable;
 
     public Laptop(int ram, String process, boolean isFingerUnlockAvailable) {
         super(ram, process, 2);

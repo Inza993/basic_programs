@@ -1,8 +1,6 @@
 package collection;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -50,9 +48,9 @@ public class FunctionalProgramming {
         // Predicate, Function, Supplier and Consumer
 //        Predicate
 
-        for (Integer i: list) {
+        for (Integer i : list) {
             if (isEven(i))
-                System.out.println("Even: "+i);
+                System.out.println("Even: " + i);
         }
 
         var result = list.stream()
@@ -65,6 +63,26 @@ public class FunctionalProgramming {
 
         System.out.println(list.stream()
                 .anyMatch(x -> x > 10));
+
+
+        List<String> stooges = Arrays.asList("Larry", "Moe", "Curly");
+//        stooges.add("alkmf");
+        stooges.set(0, "sdf");
+        System.out.println(stooges);
+
+
+        var vale2 = List.of(1, 2);
+//        vale2.add(3);
+//        vale2.set(1,22);
+
+        ArrayList<Object> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.add(2);
+
+        var vale = Collections.unmodifiableList(list1);
+//        vale.set(1, 22);
+//        vale.add(2);
+
     }
 
     static boolean isEven(int no) {
