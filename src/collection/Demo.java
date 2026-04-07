@@ -16,16 +16,23 @@ public class Demo {
         laptops.add(new Laptop(8, "intel", false));
         laptops.add(new Laptop(16, "intel", false));
 
-        var value = laptops
+        var value = laptops // data source
                 .stream()
-                .filter(laptop -> laptop.ram > 8)
+                .filter(laptop -> laptop.ram > 8) // intermediate operation returns stream
                 .map(laptop -> {
                     laptop.isFingerUnlockAvailable = true;
                     return laptop;
                 })
-                .toList();
+                .toList(); // terminal operation returns value
 
         System.out.println(value);
+
+        Admin admin = new Admin("muthu", 34, 34);
+        admin.getUser().displayDetails();
+
+        laptops.stream()
+                .filter(laptop -> laptop.ram > 8)
+                .forEach(laptop -> System.out.println(laptop));
 
         System.out.println(
                 laptops.stream()
@@ -43,28 +50,28 @@ public class Demo {
 
 
         var allMatch = laptops.stream()
-                                .allMatch(laptop -> laptop.ram > 4);
+                .allMatch(laptop -> laptop.ram > 4);
         System.out.println("allMatch: " + allMatch);
 
         var anyMatch = laptops.stream()
-                                .anyMatch(laptop -> laptop.isFingerUnlockAvailable);
+                .anyMatch(laptop -> laptop.isFingerUnlockAvailable);
         System.out.println("anyMatch: " + anyMatch);
 
         System.out.println(laptops);
 
 
         var dropWhile = laptops.stream()
-                                .dropWhile(laptop -> laptop.ram == 8)
-                                .toList();
+                .dropWhile(laptop -> laptop.ram == 8)
+                .toList();
 
-        System.out.println("dropWhile: "+dropWhile);
+        System.out.println("dropWhile: " + dropWhile);
 
 
         var takeWhile = laptops.stream()
-                                .takeWhile(laptop -> laptop.ram == 8)
-                                .toList();
+                .takeWhile(laptop -> laptop.ram == 8)
+                .toList();
 
-        System.out.println("takeWhile: "+takeWhile);
+        System.out.println("takeWhile: " + takeWhile);
 
         List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
 

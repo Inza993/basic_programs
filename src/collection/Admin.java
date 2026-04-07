@@ -6,6 +6,7 @@ public class Admin implements Comparable<Admin> {
     String name;
     int id;
     int age;
+    User user = new User("Raj", 11, 12);
 
     public Admin(String name, int id, int age) {
         this.name = name;
@@ -40,5 +41,9 @@ public class Admin implements Comparable<Admin> {
         else if (this.name.compareTo(o.name) > 0)
             return 1;
         return -1;
+    }
+
+    public User getUser() {
+        return user;
     }
 }

@@ -66,4 +66,8 @@ public class User implements Comparable<User> {
 
         return -1;
     }
+
+    public void displayDetails() {
+        System.out.println(this);
+    }
 }
