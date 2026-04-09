@@ -62,17 +62,17 @@ public class Streams {
 
         // stream is not reusable
         Stream<String> streamOf2 = lst.stream()
-                                    .filter(s -> {
-                                        System.out.println("filter: " + s);
-                                        return s.contains("2");
-                                    });
+                .filter(s -> {
+                    System.out.println("filter: " + s);
+                    return s.contains("2");
+                });
 
-        System.out.println("stream.findFirst(): "+streamOf2.findFirst());
+        System.out.println("stream.findFirst(): " + streamOf2.findFirst());
 //        System.out.println("stream.toList(): "+streamOf2.toList());
 
 
         Stream<String> stream1 = Stream.of("a", "b", "c")
-                                        .filter(element -> element.contains("b"));
+                .filter(element -> element.contains("b"));
 
         Optional<String> anyElement = stream1.findAny();
 
@@ -103,8 +103,8 @@ public class Streams {
         System.out.println(emptyLst);
         emptyLst.clear();
 
-        for (List<String> item: combined) {
-            for (String s: item) {
+        for (List<String> item : combined) {
+            for (String s : item) {
                 emptyLst.add(s);
             }
         }
@@ -132,6 +132,47 @@ public class Streams {
                     System.out.println(stringStringEntry.getKey());
                     System.out.println(stringStringEntry.getValue());
                 });
+
+        books.values()
+                .stream()
+                .sorted()
+                .findFirst();
+
+        Map<String, Integer> stdMap = new HashMap<>();
+        stdMap.put("raja", 95);
+        stdMap.put("raj", 90);
+
+        var min = stdMap.values()
+                .stream()
+                .min((o1, o2) -> o1.compareTo(o2))
+                .get();
+
+        var max = stdMap.values()
+                .stream()
+                .max((o1, o2) -> o1.compareTo(o2))
+                .get();
+
+        System.out.println(min);
+        System.out.println(max);
+
+        var mx = stdMap.entrySet()
+                .stream()
+                .max((o1, o2) -> o1.getValue().compareTo(o2.getValue()))
+                .get();
+
+        System.out.println(mx);
+
+        List<Map.Entry<String, Integer>> lst1 = new ArrayList<>(stdMap.entrySet());
+        System.out.println(lst1);
+        lst1.sort(Map.Entry.comparingByValue());
+
+        System.out.println(lst1);
+        System.out.println(stdMap);
+
+        // requires java 21
+//        stdMap.entrySet().stream()
+//                .sorted(Map.Entry.comparingByValue())
+//                .forEach(e -> stdMap.putLast(e.getKey(), e.getValue()));
 
 
     }
