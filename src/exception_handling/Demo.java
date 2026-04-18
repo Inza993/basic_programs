@@ -6,7 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class Demo {
-
+    /*
+     * Run time exception (un-checked)
+     *   - while program is running and if an exception happens it's runtime exception
+     * Compile time exception (checked)
+     *   - while writing a program or compiling a program this type of exception is happening
+     * */
     public static void main(String[] args) /*throws FileNotFoundException*/ {
         try {
             FileReader file1 = new FileReader("C:\\Users\\arun.s\\Basic Programs\\src\\exception_handling\\test.txt");
@@ -39,7 +44,8 @@ public class Demo {
 
     static void methodB() throws FileNotFoundException {
         System.out.println("Inside methodB()");
-        methodC();
+//        methodC();
+        methodD();
     }
 
     static void methodC() throws FileNotFoundException {
@@ -50,17 +56,17 @@ public class Demo {
 //        runtimeException();
     }
 
+    static void methodD() throws NullPointerException {
+        System.out.println("Inside methodC()");
+
+        runtimeException();
+    }
+
     private static void runtimeException() {
+        Demo demo = new Demo();
+        Laptop laptop1 = new Laptop(12, "intel", true);
         Laptop laptop = null;
         laptop.setFingerUnlockAvailable(false);
     }
 
 }
-
-
-/*
-* Run time exception (un-checked)
-*   - while program is running and if an exception happens it's runtime exception
-* Compile time exception (checked)
-*   - while writing a program or compiling a program this type of exception is happening
-* */
