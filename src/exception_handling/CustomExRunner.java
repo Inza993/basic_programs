@@ -64,6 +64,12 @@ public class CustomExRunner {
             System.out.println("Common logic");
         }
 
+        try {
+            int x = 10 / 0;
+        } finally {
+            System.out.println("Common logic");
+        }
+
         System.out.println("the end");
 
     }
