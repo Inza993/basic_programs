@@ -8,7 +8,19 @@ public class MainClass {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("1. Enter Student details, 2. View student details");
+
+        Student st1 = new Student("Nazrin");
+        Subject sub1 = new Subject(70, 80, 90, 90);
+        students.put(st1, sub1.calcTot());
+        Student st2 = new Student("Inza");
+        Subject sub2 = new Subject(40, 30, 50, 50);
+        students.put(st2, sub2.calcTot());
+        Student st3 = new Student("Faheeem");
+        Subject sub3 = new Subject(100, 100, 100, 100);
+        students.put(st3, sub3.calcTot());
+
+        System.out.println("1. Enter Student details, 2. View student details 3.Mark of a specific student" +
+                "4. Update mark 5.Remova 6.Highest Mark 7.Marks greater than 200");
         int input = Integer.parseInt(sc.nextLine());
         while(true){
             switch (input){
@@ -86,8 +98,17 @@ public class MainClass {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Student name");
         String name = sc.nextLine();
-        Student st = new Student(name);
-        System.out.println("The mark of :"+name+" is "+students.get(st));
+        boolean flag = false;
+
+        for(Map.Entry<Student,Integer> entry : students.entrySet()){
+            if(entry.getKey().name.equalsIgnoreCase(name)){
+                System.out.println(entry);
+                flag = true;
+                break;
+            }
+        }
+        if(!flag)
+            System.out.println(name+" is not present");
     }
 
     public static void updateMark(){
@@ -121,15 +142,16 @@ public class MainClass {
 //            }
 //        }
         ArrayList<Map.Entry<Student , Integer>> entry = new ArrayList<>(students.entrySet().stream().toList());
-        System.out.println("List: "+entry);
+        //System.out.println("List: "+entry);
         for(int i = 0; i < entry.size(); i++){
             Map.Entry<Student , Integer> item = entry.get(i);
-            System.out.println("Item: "+item);
+            //System.out.println("Item: "+item);
             if (item.getKey().equals(st)) {
                   entry.remove(i);
             }
         }
         System.out.println("List after removal: "+entry);
+
 //        Iterator<Map.Entry<Student, Integer>> it = students.entrySet().iterator();
 //        while (it.hasNext()) {
 //            Map.Entry<Student, Integer> entry = it.next();
@@ -157,10 +179,16 @@ public class MainClass {
 //        System.out.println(students);
     }
     public static void greaterThan200(){
-        System.out.println("Students scored more than 200"+students.entrySet()
-                .stream()
-                .filter(entry -> entry.getValue() > 200)
-                .toList());
+//        System.out.println("Students scored more than 200"+
+//        students.entrySet()
+//                .stream()
+//                .filter(entry -> entry.getValue() > 200)
+//                .toList());
+        System.out.println("Students scored more than 200");
+        for(Map.Entry<Student , Integer> entry : students.entrySet()) {
+            if(entry.getValue() > 200)
+                System.out.println(entry);
+        }
     }
 
 
