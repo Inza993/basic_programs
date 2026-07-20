@@ -63,5 +63,11 @@ public class Main {
         System.out.println(Arrays.deepToString(arr1));
         System.out.println(Arrays.toString(new int[5]));
 
+        try {
+            throw new RuntimeException("dsfas");
+        } catch (Exception e) {
+            System.out.println("see");
+        }
+
     }
 }
