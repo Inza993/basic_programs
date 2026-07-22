@@ -57,7 +57,6 @@ public class MainClass {
                 break;
             }
         }
-
     }
     public static void getStudentDetails()
     {
