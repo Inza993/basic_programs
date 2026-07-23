@@ -1,0 +1,31 @@
+Task: Jewellery Shop Item Logger
+Goal: Write a Java program that lets you add jewellery item details to a file and read them back — simulating a simple inventory log.
+
+What You'll Practice
+Writing to a file using FileWriter / BufferedWriter
+
+Reading from a file using FileReader / BufferedReader
+
+Appending data without overwriting
+
+Exception handling with try-catch
+
+Task Requirements
+Write item details (name, quantity, price) to a file called inventory.txt
+
+Append new items without deleting old ones
+
+Read and display all items from the file
+
+Count the total number of items stored
+
+Bonus Challenges 🚀
+Once you finish the basic task, try these extensions:
+
+Search for an item by name in the file
+
+Delete a specific item from the file (rewrite without that line)
+
+Sort items by price when reading
+
+Export inventory as CSV format (useful for your shop app later!)
